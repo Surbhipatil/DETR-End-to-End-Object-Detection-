@@ -1,4 +1,34 @@
 
+# DETR (End-to-End Object Detection) with ResNet-50 Backbone
+## Overview
+**DETR (Detection Transformer)** is an end-to-end object detection model that utilizes a transformer architecture. Unlike traditional object detectors, DETR simplifies the detection pipeline and eliminates the need for components like region proposal networks and anchor boxes. This repository implements DETR using a ResNet-50 backbone for feature extraction.
+## Features
+• **End-to-End Object Detection:** From image input to output bounding boxes and class predictions.
+
+• **ResNet-50 Backbone:** Pre-trained on ImageNet, the ResNet-50 backbone serves as a feature extractor.
+
+• **Transformer Architecture:** Provides robust performance with fewer training iterations.
+
+• **Compatibility:** Trained and tested on COCO dataset, adaptable for other datasets.
+
+## Model Architecture
+This implementation uses:
+
+•	**ResNet-50:** Extracts features from the input image.
+
+•	**Transformer Encoder-Decoder:** Processes the feature maps and outputs object queries corresponding to objects in the image.
+
+•	**Feed-forward Network (FFN):** Predicts class labels and bounding boxes from the transformer’s output.
+## Model description
+The DETR model is an encoder-decoder transformer with a convolutional backbone. Two heads are added on top of the decoder outputs in order to perform object detection: a linear layer for the class labels and a MLP (multi-layer perceptron) for the bounding boxes. The model uses so-called object queries to detect objects in an image. Each object query looks for a particular object in the image. For COCO, the number of object queries is set to 100.
+
+The model is trained using a "bipartite matching loss": one compares the predicted classes + bounding boxes of each of the N = 100 object queries to the ground truth annotations, padded up to the same length N (so if an image only contains 4 objects, 96 annotations will just have a "no object" as class and "no bounding box" as bounding box). The Hungarian matching algorithm is used to create an optimal one-to-one mapping between each of the N queries and each of the N annotations. Next, standard cross-entropy (for the classes) and a linear combination of the L1 and generalized IoU loss (for the bounding boxes) are used to optimize the parameters of the model.
+
+
+
+
+
+
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
@@ -21,4 +51,3 @@ This model achieves an AP (average precision) of 42.0 on COCO 2017 validation. F
 ## output
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
