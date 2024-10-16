@@ -31,7 +31,7 @@ The model is trained using a "bipartite matching loss": one compares the predict
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Surbhipatil/DETR-End-to-End-Object-Detection-/blob/main/Screenshot%202024-10-14%20182629.png)
 
 ## Training data
 The DETR model was trained on COCO object detection, a dataset consisting of 118k/5k annotated images for training/validation respectively.
