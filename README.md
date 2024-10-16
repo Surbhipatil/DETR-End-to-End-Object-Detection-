@@ -50,4 +50,4 @@ This model achieves an AP (average precision) of 42.0 on COCO 2017 validation. F
 
 ## output
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Surbhipatil/DETR-End-to-End-Object-Detection-/blob/main/10_pactical_output.PNG)
